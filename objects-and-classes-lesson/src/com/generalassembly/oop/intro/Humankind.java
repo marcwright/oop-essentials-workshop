@@ -1,38 +1,38 @@
 package com.generalassembly.oop.intro;
 
-public class Mankind {
-    private int ID;
+public class Humankind {
+    private int id;
     private String name;
     private String address;
 
-    public Mankind() {
+    public Humankind() {
     }
 
-    public Mankind(int ID) {
-        this.ID = ID;
+    public Humankind(int ID) {
+        this.id = ID;
     }
 
-    public Mankind(int ID, String name) {
+    public Humankind(int ID, String name) {
         this(ID);
         this.name = name;
     }
 
-    public Mankind(int ID, String name, String address) {
+    public Humankind(int ID, String name, String address) {
         this(ID, name);
         this.address = address;
     }
 
     public static void main(String[] args) {
-        Mankind johnSmith = new Mankind();
-        System.out.println(johnSmith);
+        HumanKind vannaWhite = new HumanKind();    
+        System.out.println(vannaWhite);
     }
 
     public int getID() {
-        return ID;
+        return id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.id = ID;
     }
 
     public String getName() {

@@ -1,28 +1,34 @@
 | Title | Type | Duration | Creator |
 | --- | -- | -- | --- |
-| Objects and Classes | Lesson | 1:15 | Victor Grazi, NYC |
+| Objects and Classes | Lesson | 1:35 | Victor Grazi, NYC |
 
 
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Objects and Classes
 
-### Learning Objectives
+## Learning Objectives
 
 At the end of this lesson, students will be able to:
 - Instantiate and use an object from a class.
 - Create an instance with the `new` keyword.
 - Add fields and methods to a class.
 - Write constructors (including ones that accept arguments).
+- Work with interfaces, inheritance, and polymorphism
+- Model SOLID principles in your code
+- Utilize the Strategy Design Pattern
 
-### Lesson Guide
+## Lesson Guide
 
 | Timing  | Type  | Topic  |
 |:-:|---|---|
 | 5 min  | Opening  | Learning Objectives | 
-| 15 min | Guided Practice | Class Creation |
-| 20 min | Guided Practice | Class Features | 
-| 10 min | Independent Practice | Calculator Class |
-| 20 min | Guided and Independent Practice | Constructors |
-| 5 min  | Conclusion  | Review/Recap |
+| 10 min | Guided Practice | Class Creation |
+| 10 min | Guided Practice | Class Features | 
+| 10 min | Independent Practice | Calculator Class |  
+| 10 min | Guided and Independent Practice | Constructors |  
+| 15 min | Guided and Independent Practice | Interfaces |  
+| 15 min | Guided and Independent Practice | Inheritance & Polymorphism |  
+| 15 min | Guided and Independent Practice | Strategy Design Pattern |  
+| 5 min  | Conclusion  | Review/Recap |  
 
 ## Opening (5 min)
 
@@ -38,9 +44,11 @@ We know humankind is a classification of a creature that thinks, senses, has a b
 
 ----
 
-## Guided Practice: Step-by-Step Class Creation (15 min)
+## Guided Practice: Step-by-Step Class Creation (10 min)
 
 Let's make this more concrete by creating a class called `HumanKind`. For now, we'll just create a shell of the class, and we can add to it as we go.
+
+While working through this example, remember the idea of the Single Responsibility Principle.  Each class should have one purpose.  The purpose for this class is to provide the functionality that any HumanKind object needs to achieve, including storing their unique information and providing any basic functionality for the human to operate on a day-to-day basis (i.e. Eat, Work, etc).  For now, keeping it simple, the class will just model the unique human's important information.  
 
 ### Step 1
 
@@ -48,7 +56,7 @@ First, create the file for the `public` `HumanKind` class.
 
 > **Knowledge Check**: What would the file name be? It should be `HumanKind.java`.
 
-We must create it in a directory that mimics the package name, i.e., `src/com/generalassembly/oop/intro/HumanKind.java`.
+We must create it in a directory that mimics the package name, i.e., `src/com/generalassembly/oop/intro/HumanKind.java`.  Also note that class names in Java are case-sensitive. Finally, in Java your public class name and the file it is in must match exactly.  For example, if you create a file named `humankind.java` then the class would be declared as `public class humankind`.  Since the filename is `HumanKind.java` the class will also be declared to match exactly as `public class HumanKind`.
 
 ```java
 package com.generalassembly.oop.intro;
@@ -68,7 +76,7 @@ Next, let's add a `main` method so we can execute our code. (Remember: A `main` 
 package com.generalassembly.oop.intro;
 
 public class HumanKind {
-    public static void main(String... args) {
+    public static void main(String[] args) {
         
     }
 }
@@ -86,7 +94,7 @@ Let's add that instance creation to our `main` method, then print out our instan
 package com.generalassembly.oop.intro;
 
 public class HumanKind {
-    public static void main(String... args) {
+    public static void main(String[] args) {
         HumanKind vannaWhite = new HumanKind();    
         System.out.println(vannaWhite);
     }
@@ -121,7 +129,7 @@ Give that arrow a left click, then click on "Run HumanKind.main()." That will co
 
 ----
 
-## Guided Practice: Class Features (20 min)
+## Guided Practice: Class Features (10 min)
 
 Now that we've looked at an example of a class, let's break down its different pieces and take a look at what exactly they're doing.
 
@@ -151,7 +159,6 @@ public class HumanKind {
 
 </details>
 
-
 #### Instance vs. Class Variables
 
 Most fields are called **instance variables** because they're contained within an instance of a class. Two different instances of the same class might have completely different values for their instance variables.
@@ -160,7 +167,7 @@ You'll frequently hear the fields of an object referred to as its **state**. Sta
 
 For example, if our `HumanKind` class has an `age` field, then `vannaWhite.age` might be 62, while `patSajak.age` might be 72.
 
-> How neat is that syntax? `vannaWhite.age` references the `age` field of the object referred to by the `vannaWhite` variable.
+> **Information:** How neat is that syntax? `vannaWhite.age` references the `age` field of the object referred to by the `vannaWhite` variable.
 
 Not all fields are instance variables. If a field is declared `static`, then it's called a **class variable**. A class variable shares its value among all instances of that class. Additionally, you don't need to have access to an instance to access a class variable. If the value of a class variable changes for one instance, it changes for all instances. We'll see examples of this shortly, along with why it's useful.
 
@@ -277,9 +284,49 @@ public class Calculator {
 
 ----
 
-### Constructors (20 min)
+## Constructors (10 min)
 
 Oftentimes, it may be convenient to pass some data into a new class after construction.
+
+### Default Constructor
+
+If we don't define a constructor for a class, Java supplies one implicitly. We saw that in our initial implementation of the `HumanKind` class earlier. 
+
+> **Tip**: If you're not doing anything in the constructor, it's totally fine — and a good practice — to just use the default constructor that Java provides and not explicitly declare any constructors at all in your object class.
+
+## Constructors without arguments (No-Argument Constructors)
+
+When you want to instantiate an object, by default a constructor is leveraged.  If you are making no changes at instantiation, then, as stated above, you don't need any constructors.  However, if your class must set some default value or utilize some sort of instantiation method (i.e. read from a configuration file or create a connection to a database or API) for use throughout the entire class, you might explicitly declare the default, no-argument constructor:
+
+```java
+public class HumanKind {
+    private int id;
+    private String name;
+    private String address;
+
+    public HumanKind() {
+        //open a connection
+        //set a common value from a config file
+        //etc.
+    }
+}
+```  
+
+In this manner, you've created some additional default functionality for the instantiation of the object.
+
+### Additional Constructor Information
+
+Here are some basic rules for writing our own constructors:
+
+1. A constructor must exactly match the class name in which it's contained.
+1. A constructor has no return type.
+1. A constructor may not be static.
+1. Constructors can be overloaded
+1. If you declare an explicit constructor and you need the default no-argument constructor, then you must also explicitly declare the no-argument constructor.
+
+## Constructors With Arguments (Explicit Constructors)
+
+Remember the constructor method we discussed earlier? The one with the same name as the class that gets called whenever a new instance is created? We can pass arguments to that to speed up our process.  We can do this by creating an explicit constructor with parameters, just like any other method can take parameters.
 
 Let's imagine we want to add some fields, as well as some getters and setters:
 
@@ -329,21 +376,18 @@ patSajak.setName("Pat Sajak");
 patSajak.setAddress("456 Elm St, New York, NY");
 ```
 
-Those are a lot of lines to repeat for each operation. But there's a better way to do it. 
+Those are a lot of lines to repeat for each operation. But there's a better way to do it (examined next in the Independent practice).
 
-### Constructors With Arguments
+## Independent Practice: `HumanKind` Class
 
-Remember the constructor method we discussed earlier? The one with the same name as the class that gets called whenever a new instance is created? We can pass arguments to that to speed up our process.
+Add a constructor to our `HumanKind` class that accepts three arguments for the initial values of `id` (`int`), `name` (`String`), and `address` (`String`).  In the constructor, set the local class variables for each field to the appropriate incoming value for the field based on the passed-in parameter values.
 
-Here are some basic rules for writing our own constructors (as opposed to just using the empty ones Java provides by default):
+When completed, using the explicit constructor, we can now save a few lines of code (and make it clearer along the way) by entering:
 
-1. A constructor must exactly match the class name in which it's contained.
-2. A constructor has no return type.
-3. A constructor may not be static.
-
-### Independent Practice: `HumanKind` Class
-
-Add a constructor to our `HumanKind` class that accepts three arguments for the initial values of `id` (`int`), `name` (`String`), and `address` (`String`).
+```java
+HumanKind vannaWhite = new HumanKind(123, "Vanna White", "123 Main St, Burbank, CA");
+HumanKind patSajak = new HumanKind(456, "Pat Sajak", "123 Main St, Burbank, CA");
+```
 
 <details>
 <summary>Solution</summary>
@@ -390,20 +434,24 @@ public class HumanKind {
 
 </details>
 
-So, given the constructor, we can now save a few lines of code (and make it clearer along the way) by entering:
+---  
 
-```java
-HumanKind vannaWhite = new HumanKind(123, "Vanna White", "123 Main St, Burbank, CA");
-HumanKind patSajak = new HumanKind(456, "Pat Sajak", "123 Main St, Burbank, CA");
-```
+>**Thought Experiment:** As you learn and develop your skills you'll start to see how you might compose objects from other objects to maintain SOLID principles and keep your classes simple and easy to maintain, as well as make your systems useable.  For example, storing the `Address` as a String is not ideal.  Instead of using a String, what might you do instead?  Can you envision how you would then use the field for the Address as a custom type instead of a String?
 
-### Default Constructor
+## Interfaces (10 min)
 
-If we don't define a constructor for a class, Java supplies one implicitly. We saw that in our initial implementation of the `HumanKind` class. 
+What is an interface?
 
-> **Tip**: If you're not doing anything in the constructor, it's totally fine — and a good practice — to just use the default Java provides.
+## Inheritance and Polymorphism  (15 min)  
 
---- 
+How do you use inheritance and polymorphism?
+
+## Design Patterns (15 min)  
+
+What are design patterns?
+
+### The Strategy Design Pattern
+| 15 min | Guided and Independent Practice | Strategy Design Pattern |   
 
 ## Conclusion (5 min)
 
