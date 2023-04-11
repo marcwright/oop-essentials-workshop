@@ -614,7 +614,142 @@ To make this simple, consider that the "data" being queried is just an ArrayList
 ArrayList<String> PerformWork();
 ```  
 
-//TODO: Finish this code example
+To make this work, start by creating an interface that can be used to enforce the method as above in a file named `PerformWorkBehavior.java`:
+
+```java
+package com.generalassembly.oop.intro;
+import java.util.ArrayList;
+
+public interface PerformWorkBehavior {
+    
+    ArrayList<String> DoWork();
+}
+```  
+
+This interface will allow the `HumanKind` class to have the ability to do their job.  
+
+Where this can be a bit different is now the `HumanKind` also needs the requirement to enforce that they have a `Work Behavior`.  To do this, define another interface to enforce getters and setters of the `PerformWorkBehavior` type.  
+
+>**Hint:** if this is confusing, just remember that this is no different than if you were asked to have getters and setters of type `String`. In this case, however, the type is the `PerformWorkBehavior`.
+
+Create a file named `IsWorker.java` and place the following code in it to define the `IsWorker` interface.
+
+```java
+package com.generalassembly.oop.intro;
+
+public interface IsWorker {
+    PerformWorkBehavior getWorkBehavior();
+    void setWorkBehavior(PerformWorkBehavior theWork);
+}
+```  
+
+Next, implement the interface on the `HumanKind` class by adding the interface, adding the new backing object as a variable, and implementing the getter and setter methods:
+
+```java
+public class HumanKind implements IsNamedObject, IsWorker  {
+    private int id;
+    private String name;
+    private String address;
+    private PerformWorkBehavior workBehavior;
+    
+    //... same code as before with no changes here
+
+    //additional code to implement the interface before the end of the class:
+        public PerformWorkBehavior getWorkBehavior() {
+        return this.workBehavior;
+    }
+
+    public void setWorkBehavior(PerformWorkBehavior theWork) {
+        this.workBehavior = theWork;
+    }
+}
+```
+
+Now that the code is in place, you need a couple of interchangeable behaviors that can be implemented by `HumanKind` objects.  For additional practice, also consider making the behavior a parameter for another constructor that could be set at instantiation.
+
+Create two new behaviors in separate classes named the same as the class with `.java` at the end of the file:
+
+```java
+package com.generalassembly.oop.intro;
+
+import java.util.ArrayList;
+
+public class LetterTurningWorker implements PerformWorkBehavior {
+
+    @Override
+    public ArrayList<String> DoWork() {
+        ArrayList<String> result = new ArrayList<String>();
+        result.add("Find the appropriate letters");
+        result.add("Expose the letter to the contestants");
+
+        return result;
+    }
+}
+```  
+
+and
+
+```java
+package com.generalassembly.oop.intro;
+
+import java.util.ArrayList;
+
+public class ModeratingWorker implements PerformWorkBehavior {
+
+    @Override
+    public ArrayList<String> DoWork() {
+        ArrayList<String> result = new ArrayList<String>();
+        result.add("Ask to spin the wheel");
+        result.add("Read the result of the spin");
+        result.add("Ask for a letter");
+        result.add("Reveal the result by saying there are N instances of the letter or no instances of the letter");
+        return result;
+    }
+}
+```  
+
+With both behaviors created, it is now possible to utilize them in the program.
+
+Create a new program with a main method for the program to utilize the behaviors:
+
+```java
+package com.generalassembly.oop.intro;
+
+import java.util.ArrayList;
+
+public class WheelOfFortuneGame {
+    public static void main(String[] args) {
+        HumanKind[] myPeople = new HumanKind[2];
+        myPeople[0] = new HumanKind(123, "Vanna White", "123 Main St, Burbank, CA");
+        myPeople[1] = new HumanKind(456, "Pat Sajak", "123 Main St, Burbank, CA");
+
+        myPeople[0].setWorkBehavior(new LetterTurningWorker());
+        myPeople[1].setWorkBehavior(new ModeratingWorker());
+        for (HumanKind human : myPeople) {
+            System.out.println(human.getName());
+
+            ArrayList<String> workResults = human.getWorkBehavior().DoWork();
+            
+            for (String workAction : workResults) {
+                System.out.printf("Performed Work: %s\n", workAction);
+            }
+        }
+        
+        //and now something happens so vanna has to run the game:
+        myPeople[0].setWorkBehavior(new ModeratingWorker());
+        System.out.println(myPeople[0].getName());
+        ArrayList<String> newWorkResults = myPeople[0].getWorkBehavior().DoWork();
+            
+        for (String workAction : newWorkResults) {
+            System.out.printf("Performed Work: %s\n", workAction);
+        }
+    }
+}
+```  
+
+Note that with the work action being interchangable, Vanna (or Pat) can switch how they interact with their work without having to write new classes!  
+
+This simulates what it might be like to have one behavior to get data from an API and one from a Database.  In one run, the worker can get the results from the database, and without changing any code other than the work behavior instance, the worker can then fetch data from the API endpoint!
 
 ## Conclusion (5 min)
 
