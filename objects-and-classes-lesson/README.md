@@ -25,9 +25,9 @@ At the end of this lesson, students will be able to:
 | 10 min | Guided Practice | Class Features | 
 | 10 min | Independent Practice | Calculator Class |  
 | 10 min | Guided and Independent Practice | Constructors |  
-| 15 min | Guided and Independent Practice | Interfaces |  
-| 15 min | Guided and Independent Practice | Inheritance & Polymorphism |  
-| 15 min | Guided and Independent Practice | Strategy Design Pattern |  
+| 15 min | Guided Practice | Interfaces |  
+| 15 min | Guided Practice | Inheritance & Polymorphism |  
+| 15 min | Guided Practice | Strategy Design Pattern |  
 | 5 min  | Conclusion  | Review/Recap |  
 
 ## Opening (5 min)
@@ -340,8 +340,8 @@ public class HumanKind {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int ID) {
+        this.id = ID;
     }
 
     public String getName() {
@@ -410,8 +410,8 @@ public class HumanKind {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int ID) {
+        this.id = ID;
     }
 
     public String getName() {
@@ -440,18 +440,181 @@ public class HumanKind {
 
 ## Interfaces (10 min)
 
-What is an interface?
+Interfaces are another structure used in OOP to define objects.  The purpose of an interface is to allow the ability to guarantee some operations while allowing for interchangeability of objects.  
+
+For example, think of a remote control device.  Your television and/or other media devices like a Blu-Ray player all likely have a remote.  However, you can purchase a `generic` remote to run all of your devices? Why does this work?  Because each remote is a unique implementation of the `RemoteInterface`.  Likely, the `RemoteInterface` has some common contractual requirements, such as:
+
+1. Ability to power on/off the device
+1. Ability to change volume up/down
+1. Ability to change channel up/down
+1. Ability to input channel numbers
+
+To make a working `remote`, a company must `implement` all of these capabilities.  A more advanced remote might have the ability to also switch inputs or even navigate settings with a scroll or laser pointer capability.  However, all remotes **must** have the core functionality, and, therefore, all devices can **expect** that any remote would be able to leverage those capabilities.
+
+This is how interfaces work in code. For example, consider the `HumanKind` class we've been working on.  What is one thing all humans must do?  Perhaps you thought of things like `eat` or `sleep`.  
+
+This is a great start. You can't be a living human if you don't have the ability to eat and drink and sleep.  How you eat, what you eat/drink, when and how long you sleep is irrelevant. The fact is you **must** be able to do these things.  We will examine how we can leverage SOLID code later to cover this functionality for a `HumanKind` object.
+
+Additionally, there are other things that have properties similar to a human, such as a Pet with a name.  In order for an object to have a `name`, the object **must** implement getters and setters (mutators and accessors) for the `getName()` and `setName()` methods.  How the object stores this property is also irrelevant (which means you can do some really cool things under the hood using abstraction).  
+
+### Guided Practice: Creating an interface
+
+For purposes of learning, let's examine a simple interface called `IsNamedObject` that makes a contract that ensures any class the implements that `IsNamedObject` interface has getters and setters defined.
+
+#### Create the Interface  
+
+In the folder where the `HumanKind` class is created, create a new `interface` to define the `IsNamedObject` contract in a file named `IsNamedObject.java`:
+
+```java
+package com.generalassembly.oop.intro;
+
+public interface IsNamedObject {
+    String getName();
+    void setName(String name);
+}
+```  
+
+Note that the properties in this interface do not have the `public` accessibility operator.  This is because all properties in an interface are public by default.
+
+#### Implement the Interface
+
+Now that the interface is defined, change the `HumanKind` class to implement the interface.
+
+Since the properties are already defined, the only work you have to do is use the `implements` keyword to show implementation as per object inheritance in java:
+
+```java
+public class HumanKind implements IsNamedObject  {
+    //...the rest of the code is unchanged
+
+}
+```  
+
+>**Note:** if the methods were not implemented, you would get a compile-time error.  You can see this if you change the name of the `getName()` method to something like `getTheName()`.  You'll see an error similar to `The type HumanKind must implement the inherited abstract method IsNamedObject.getName()` if you try to compile.  When the contract is defined, all objects that are of that type **must** exactly implement the contract.
 
 ## Inheritance and Polymorphism  (15 min)  
 
-How do you use inheritance and polymorphism?
+Now that you've learned about using interfaces, let's take a look at Polymorphism.
+
+In the inheritance and polymorphism of objects in Java, you can use a less-specific type to implement common code.  This is often refered to as `coding to the interface`.  All `named` objects are defined in the interface to have methods of `getName()` and `setName().  Therefore, you can create an array of objects that are all implementing the `IsNamedObject` interface and use them interchangeably.  
+
+For example, consider the problem that you can't have an array of type `String` that holds objects that are of type `Integer` (`int`).  While you can store 32 as "32", the values are not necessarily the same because the string "32" is not the same thing as the number 32.
+
+Try this in any main method:
+
+```java
+String[] myStrings = new String[10];
+myStrings[0] = "any string";
+myStrings[1] = 32;
+```  
+
+What happens?  You get an error because the number 32 is not a string.  Sure, you can convert this simple example and 32 as "32" will likely be OK, but this is not good code.  You also can't convert a String to an integer:
+
+```java
+int[] myInts = new int[10];
+myInts[0] = 32;
+myInts[1] = "This is not possible";
+```  
+
+You can create an object that holds a String and an int.  In fact, this is what `HumanKind` is doing, with an int ID and a String name, and then you can create an array of HumanKind objects:
+
+```java
+HumanKind[] myPeople = new HumanKind[2];
+myPeople[0] = new HumanKind(123, "Vanna White", "123 Main St, Burbank, CA");
+myPeople[1] = new HumanKind(456, "Pat Sajak", "123 Main St, Burbank, CA");
+
+for (HumanKind human : myPeople) {
+    System.out.println(human.getName());
+}
+```  
+
+This is a good practice, but it is still going to fall short in a system where you need to have any interchangeable named objects.
+
+For example, consider a `Pet` class:
+
+```java
+package com.generalassembly.oop.intro;
+
+public class Pet implements IsNamedObject {
+    private String name;
+
+    public Pet(){
+
+    }
+    public Pet(String petName){
+        this.name = petName;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String petName) {
+        name = petName;
+    }
+}
+```  
+
+This `Pet` object also has a name, but you can't create an array of HumanKind and Pet interchanged, just like you can't do String and int:
+
+```java
+HumanKind[] myPeople = new HumanKind[2];
+myPeople[0] = new HumanKind(123, "Vanna White", "123 Main St, Burbank, CA");
+myPeople[1] = new Pet("Spot");
+``` 
+
+The error is the same as before, with type mismatch `cannot convert from `Pet` to `HumanKind`.
+
+But what if **all** you care about is the name of all of the objects in your system?
+
+Using Polymorphism, you can leverage the interface as the type!
+
+```java
+IsNamedObject[] namedObjects = new IsNamedObject[2];
+namedObjects[0] = new HumanKind(123, "Vanna White", "123 Main St, Burbank, CA");
+namedObjects[1] = new Pet("Spot");
+for (IsNamedObject namedObject : namedObjects) {
+    System.out.println(namedObject.getName());
+}
+```  
+
+Once you utilize polymorphism, you have type interchangeability at the simplest level of the interface, and this gives you great power in OOP.
+
+>**Note:** There is more to learn here.  Consider doing more research on how to utilize casting and object type checking to see how you can leverage the underlying object to get back to more specific properties that are not named as part of the interface.
 
 ## Design Patterns (15 min)  
 
-What are design patterns?
+With OOP, there are a number of problems that are common in just about every implemented solution.  For this reason, a group of people got together and created a number of `Design Patterns`. This group of people is known as the `Gang of Four` as there were four of them, and they defined a number of patterns to help with common OOP concerns.
 
-### The Strategy Design Pattern
-| 15 min | Guided and Independent Practice | Strategy Design Pattern |   
+As an OOP developer, you should learn about these patterns, but you should also remember that sometimes a pattern can be overkill so you should implement them when it makes sense and don't over-architect every solution you create for the sake of following patterns.  
+
+Some of the more common patterns are:
+
+- Singleton
+- Strategy
+- Iterator
+- Factory
+- Adaptor
+- Chain-of-command
+
+You can find out more [here](https://www.gofpatterns.com/)    
+
+### The Strategy Design Pattern   
+
+Earlier we talked about the fact that all `HumanKind` objects should be able to eat.  We could easily create a method that models the behavior of eating.  We could then set it as a string such as "Eating pasta" or "Eating tacos".  What about "Eating Tacos with my hands" vs "Eating pasta with a fork" versus "Eating Rice with chopsticks"?  These are getting more complex.  Also, it's the same thing, just with variations: `eating X with Y`. 
+
+Let's step away from eating and go back to the `HumanKind` to make this more practical.  What about a common method `PerformWork`.  For Vanna, `PerformWork` means to turn the letters.  For Pat, `PerformWork` means to read the clues and recite the wheel values, etc (essentially `moderate` the game). 
+
+Once again, this could be done with a simple string.  In the real world, however, this would likely be operational functionality.  For example, `GetData` with implementations `GetDataFromDatabase` and `GetDataFromAPI`.  Both need to return a list of the object that is being fetched, however one goes to the database, and one calls to an API.  The Database object needs to open a connection and query.  The API object needs to know the target URL Endpoint, pass a token, and then just return the results.
+
+#### Implement the Strategy Pattern to have HumanKind objects PerformWork
+
+To make this simple, consider that the "data" being queried is just an ArrayList of Strings.  The common PerformWork functionality just needs to do this:
+
+```java
+ArrayList<String> PerformWork();
+```  
+
+//TODO: Finish this code example
 
 ## Conclusion (5 min)
 
@@ -468,3 +631,10 @@ With a partner, discuss the following prompts:
     * Constructors
     * Instances
     * Properties
+
+* Utilize:
+    * Polymorphism
+    * Design Patterns
+
+* Remember:
+    * Solid Principles

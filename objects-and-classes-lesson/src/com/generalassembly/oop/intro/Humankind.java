@@ -1,23 +1,23 @@
 package com.generalassembly.oop.intro;
 
-public class Humankind {
+public class HumanKind implements IsNamedObject{
     private int id;
     private String name;
     private String address;
 
-    public Humankind() {
+    public HumanKind() {
     }
 
-    public Humankind(int ID) {
+    public HumanKind(int ID) {
         this.id = ID;
     }
 
-    public Humankind(int ID, String name) {
+    public HumanKind(int ID, String name) {
         this(ID);
         this.name = name;
     }
 
-    public Humankind(int ID, String name, String address) {
+    public HumanKind(int ID, String name, String address) {
         this(ID, name);
         this.address = address;
     }
