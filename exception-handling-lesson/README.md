@@ -1,13 +1,13 @@
 ---
 Title: Exception Handling Lesson
-Duration: "1:30"
+Duration: "0:45"
 Creators: Drew Mahrt and Isha Arora
 ---
 
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Exception Handling
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Exception Handling Lesson
 
 
-### Learning Objectives
+## Learning Objectives
 
 At the end of this lesson, students will be able to:
 - Describe an exception.
@@ -16,7 +16,7 @@ At the end of this lesson, students will be able to:
 
 ---
 
-### Lesson Guide
+## Lesson Guide
 
 | Timing  | Type  | Topic  |
 |:-:|---|---|
@@ -145,7 +145,7 @@ try {
 }
 ```
 
-### finally Block
+## finally Block
 According to [Java docs](https://docs.oracle.com/javase/tutorial/essential/exceptions/finally.html) *the finally block always executes when the try block exits.* This ensures that the finally block is executed even if an unexpected exception occurs. But finally is useful for more than just exception handling — it allows the programmer to avoid having cleanup code accidentally bypassed by a return, continue, or break. Putting cleanup code in a finally block is always a good practice, even when no exceptions are anticipated.
 
 It can be used just with `try` or with `try-catch`
@@ -172,7 +172,7 @@ try{
 
 <a name="guided-practice"></a>
 
-### `throws` keyword
+## `throws` keyword
 
 Now, let's talk about the other option our IDE was giving us: adding a `throws` declaration. Another way of handling a checked exception is by using the `throws` keyword. We use this keyword to tell the calling method that it's responsible for handling the error this piece of code might throw. 
 
@@ -197,7 +197,7 @@ Now, whichever method will call `connectToURL()` can either handle the exception
 
 The biggest advantage of using this keyword is having all exception handling in one place as your application grows and becomes more complex. Also, it helps declutter your code.
 
-### `throw` keyword
+## `throw` keyword
 We use this keyword to throw an exception manually from anywhere in the code. This concept is best explained through an example. 
 
 In this example, we'll be looking at a program that divides two numbers for us and displays the result. Open up the [`DivisionExample` starter code](./starter-code/DivisionExample).
@@ -239,23 +239,6 @@ public static void main(String[] args) {
 
 <a name="ind-practice"></a>
 
-## Lab: File Reading and Writing (45 min)
+## Conclusion
 
-Create an app that quizzes users on superhero trivia. Open the `Superheroes` [starter code](./starter-code/Superheroes) and start working from there.
-
-Your app reads the superhero info from an `input.txt` file and stores it in an `ArrayList`. Based on the answers, keep count of every right and wrong one. If the number of right answers is greater than wrong ones, declare the user a winner and write the user's name and the result of the quiz in an `output.txt` file.
-
-You can refer to the solution code [here](./solution-code/Superheroes).
-***
-
-<a name="conclusion"></a>
-
-## Conclusion (5 min)
-
-Exceptions are an important part of keeping our apps running when problems occur. Sometimes, these problems — such as certain file I/O or networking situations — are out of our hands, and we need to be prepared to handle them.
-
-***
-
-### Additional Resources
-- [`try` Blocks](https://docs.oracle.com/javase/tutorial/essential/exceptions/try.html)
-- [`catch` Blocks](https://docs.oracle.com/javase/tutorial/essential/exceptions/catch.html)
+In this lesson you learned about working with exceptions.  You are now ready to move on to the exception handling lab.
