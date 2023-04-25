@@ -1,5 +1,4 @@
-# java-essentials-workshop
-Java Essentials Summer Workshop
+# OOP Essentials Summer Workshop
 
 | Session |	Lesson | Lab | 
 | --- | --- | --- |
