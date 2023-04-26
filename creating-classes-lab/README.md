@@ -1,7 +1,7 @@
 ---
 title: Creating Classes
 type: Lab
-duration: "1:30"
+duration: "1:00"
 creator:
     name: Drew Mahrt
     city: NYC
