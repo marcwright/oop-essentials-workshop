@@ -25,7 +25,7 @@ At the end of this lesson, students will be able to:
 | 10 min  | [Introduction](#introduction-try-catch-block-10-min)  | `try-catch` Block |
 | 10 min  | [Demo](#demo-indexoutofboundsexception-10-min)  | `IndexOutOfBoundsException` |
 | 10 min  | [Introduction](#when-you-should-use-try-catch-blocks-10-min)  | When You Should Use `try-catch` blocks |
-| 45 min  | [Lab](#lab-file-reading-and-writing-45-min)  | File Reading and Writing |
+| 45 min  | [Lab](https://git.generalassemb.ly/M-T-Curriculum/oop-essentials-workshop/blob/main/exception-handling-lab)  | File Reading and Writing |
 | 5 min  | [Conclusion](#conclusion-5-min)  | Review/Recap |
 
 <a name="opening"></a>
