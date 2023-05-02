@@ -1,4 +1,4 @@
-# OOP Essentials Summer Workshop
+# OOP Foundations Summer Workshop
 
 | Session |	Lesson | Lab | 
 | --- | --- | --- |
