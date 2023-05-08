@@ -1,16 +1,28 @@
-package ly.generalassemb.drewmahrt.classes_lab;
 
 public class Animal {
     private int numLegs;
     private int topSpeed;
     private boolean isEndangered;
     private String name;
+    private SpeakBehavior speakBehavior;
 
-    public Animal(int numLegs, int topSpeed, boolean isEndangered, String name){
-        this.numLegs = numLegs;
-        this.topSpeed = topSpeed;
-        this.isEndangered = isEndangered;
-        this.name = name;
+    public Animal(){
+        //intentionally left blank
+    }
+
+    public Animal(int numberOfLegs, int animalTopSpeed, boolean isAnimalEndangered, String animalName){
+        numLegs = numberOfLegs;
+        topSpeed = animalTopSpeed;
+        isEndangered = isAnimalEndangered;
+        name = animalName;
+    }
+
+    public Animal(int numberOfLegs, int animalTopSpeed, boolean isAnimalEndangered, String animalName, SpeakBehavior animalSpeakBehavior){
+        numLegs = numberOfLegs;
+        topSpeed = animalTopSpeed;
+        isEndangered = isAnimalEndangered;
+        name = animalName;
+        speakBehavior = animalSpeakBehavior;
     }
 
     public int getNumLegs() {
@@ -44,4 +56,22 @@ public class Animal {
     public void setName(String name) {
         this.name = name;
     }
+
+    //additional get/set for the speakBehavior property
+    public SpeakBehavior getSpeakBehavior() {
+        return speakBehavior;
+    }
+
+    public void setSpeakBehavior(SpeakBehavior animalSpeakBehavior) {
+        this.speakBehavior = animalSpeakBehavior;
+    }
+
+    public String toString() {
+        String output = String.format("The %s has a top speed of %d mph, has %d legs, and is", name, topSpeed, numLegs);
+        if (isEndangered)
+            output += " endangered.";
+        else
+            output += " not endangered.";
+        return output;
+    }   
 }
