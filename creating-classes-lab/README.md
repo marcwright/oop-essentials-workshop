@@ -29,23 +29,26 @@ In this lab, you'll apply your knowledge of classes to build a Java program that
 
 
 **Bonus**: Include additional methods in your `Animal` class that return a formatted `String` using the class properties.
-**Bonus**: Utilize an interface to create an interchangeable behavior (Strategy Pattern) that returns a String to make the various `Animal` implementations speak.  Create implementations for "Meow", "Bark", and "Growl" **Hint:** Implement the behavior requirements at the Animal level so you only have to write the code in the superclass.  Make the program output a cat that "Meows" then "Growls.  Have a Dog that "Growls" then "Barks" by utilizing composition and strategy during program execution.
+**Bonus**: Utilize an interface to create an interchangeable behavior (Strategy Pattern) that returns a String to make the various `Animal` implementations speak.  Create implementations for "Meow", "Bark", and "Growl" Make the program output a cat that "Meows" then "Growls.  Have a Dog that "Growls" then "Barks" by utilizing composition and strategy during program execution. 
+    **Hint:** Implement the behavior requirements at the Animal level so you only have to write the code in the superclass, even if inheritance is implemented later.  
 
 #### Starter Code
 
-You'll need to complete the constructor, getters, and setters in the provided `Animal.java` file. `Main.java` contains comments guiding you on the code you need to write.
+You'll need to complete the constructor(s), getters, and setters in the provided `Animal.java` file. `Main.java` contains comments guiding you on the code you need to write.  As part of the bonus activities, utilize the toString method to output the statements such as `The Elephant has a top speed of 25 mph.`
+
+For the bonus activities, you'll need to define and implement an additional interface for `SpeakBehavior` with implementations for Meow, Growl, and Bark. You'll then need to work with that code in the main method to achieve the desired output.
 
 #### Deliverable
 
 Your program should return the text below, following the requirements above:
 
 ```
-The Elephant has a top speed of 25 mph.
-The Lion has a top speed of 50 mph.
-The Cat has a top speed of 30 mph. 
+The Elephant has a top speed of 25 mph, has 4 legs, and is not endangered.
+The Lion has a top speed of 50 mph, has 4 legs, and is endangered.
+The Cat has a top speed of 30 mph, has 4 legs, and is not endangered. 
 The Cat Meows.
 The Cat Growls.
-The Dog has a top speed of 40 mph.
+The Dog has a top speed of 40 mph, has 4 legs, and is not endangered.
 The Dog Growls.
 The Dog Barks.
 ```
