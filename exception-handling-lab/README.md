@@ -23,6 +23,16 @@ Exceptions are an important part of keeping our apps running when problems occur
 
 ***
 
+<a name="VM File Path"></a>
+
+## VM File Path (5 min)
+
+If you get a scanner error it could be due to how the VM handles file paths. You may need to right click and copy the file path for the `input.txt` file. A screenshot is below (based on the repo being on the Desktop of the VM).
+
+![](./scanner.png)
+
+***
+
 ## Additional Resources
 - [`try` Blocks](https://docs.oracle.com/javase/tutorial/essential/exceptions/try.html)
 - [`catch` Blocks](https://docs.oracle.com/javase/tutorial/essential/exceptions/catch.html)
