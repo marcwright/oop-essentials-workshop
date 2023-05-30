@@ -29,7 +29,7 @@ If the environment is provisioned for you, then you will need to go through the 
 
 1) Send your work email and your personal email (likely your-name@somecompany.com and your-email@someemaillikegmailyahoooroutlook.com)
 2) Once we have both of your emails, you will receive an invitation to get a cloud lab machine from us, sent to your work email
-3) You will accept the invitation from your work email to log into the [Azure Labs](https://www.azurelabs.com), where you will get a VM assigned to you
+3) You will accept the invitation from your work email to log into the [Azure Labs](https://labs.azure.com), where you will get a VM assigned to you
 4) Start the VM by getting the connection information from Azure Labs and using RDP from your local machine
 5) Once you are on the Dev Machine you are now ready to begin the class.  All the tools you need are available
 6) The instructor will provide further details on obtaining the source code and where to place it on your Lab VM Developer Machine
