@@ -6,31 +6,27 @@
 | Afternoon |	[Debugging](/debugging-lesson/)<br>-----<br>[Exception Handling](/exception-handling-lesson/) | [Exception Handling Lab](/exception-handling-lab/) |
 
 
-# Welcome to Cloud Computing Essentials
+# Welcome to the Java OOP Essentials Workshop
 
-In this course you will learn how to get started with the basics of creating and deploying cloud-native applications with Azure
+In this course you will learn how to get started with the basics of Object-Oriented Programming (OOP) using Java
 
 ## What you will learn
 
 During this course you will learn the following:
 
-- Benefits and Drawbacks to Cloud Solutions
-- Concepts and terms associated with Cloud Computing
-- How to work with Docker from the command line
-- How to package code into an image
-- How to provision Azure Resources, including:
-    - Azure Container Registry (ACR)
-    - Azure Container Instances (ACI)
+- How to work with Java 
+- Classes
+- Inheritance
+- Simple Design Patterns
 
 ## What you will need
 
 At a minimium, you need the following items to complete this course 
 
 - A development machine with the following:
-    - Docker
-    - VS Code
+    - Java SDK (17/20)
+    - VS Code or IntilliJ or Eclipse or Netbeans
     - A Terminal
-- An Azure Subscription
 - The source code associated with this course
 
 >**Note:** The above (and more) is likely provided for you as part of this course
