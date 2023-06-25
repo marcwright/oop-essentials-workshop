@@ -78,15 +78,15 @@ If the environment is provisioned for you, then you will need to go through the 
 
 3. Once you login, you can start and stop the machine from **labs.azure.com**. You will also be able to get the VM RDP (Remote Desktop) information there (you should already have this software on your PC).
 
-    ![azure Labs](image.png)
+    ![azure Labs](./images/image.png)
 
 4. Start the VM by clicking the "Stopped" toggle button. It may take a few seconds to warm up. Once the VM is "Running" you can click on the PC icon on the bottom right to launch the Remote Desktop.
 
-    ![Alt text](vm-running.png)
+    ![Alt text](./images/vm-running.png)
 
 5. If asked for a password, use `ClearPanda#082022!`. Your username _may_ be different from the screenshot.
 
-    ![Alt text](image-1.png)
+    ![Alt text](./images/image-1.png)
 
 
 
