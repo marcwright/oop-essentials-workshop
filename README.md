@@ -40,9 +40,25 @@ If the environment is provisioned for you, then you will need to go through the 
 
 1. As we get started, please make sure you're in the **M+T Guest WIFI**.
 
-2. Please use your credentials below to login to [Azure Labs](https://labs.azure.com) where you will get a VM assigned to you. You'll need your `VM/Azure Login` and `Password`.
+2. Please use your credentials below to login to [Azure Labs](https://labs.azure.com) where you have a VM assigned to you. You'll need your `VM Login` and `Password`.
 
-
+| Count | Full Name              | VM Login                                          | Password      |
+| ----- | ---------------------- | ------------------------------------------------- | ------------- |
+| 1     | Andrew Perreault       | ga-student-202306-0001@majorguidancesolutions.com | Yawu2394#001! |
+| 2     | Anthony Mazzacane      | ga-student-202306-0002@majorguidancesolutions.com | Yawu2394#002! |
+| 3     | Connor Witkiewicz      | ga-student-202306-0003@majorguidancesolutions.com | Yawu2394#003! |
+| 4     | Frank Yubi             | ga-student-202306-0004@majorguidancesolutions.com | Yawu2394#004! |
+| 5     | Kiane Efondo           | ga-student-202306-0005@majorguidancesolutions.com | Yawu2394#005! |
+| 6     | Michael Laufer         | ga-student-202306-0006@majorguidancesolutions.com | Yawu2394#006! |
+| 7     | Michael Pikounis       | ga-student-202306-0007@majorguidancesolutions.com | Yawu2394#007! |
+| 8     | Nicholas Conn          | ga-student-202306-0008@majorguidancesolutions.com | Yawu2394#008! |
+| 9     | Owen Wurst             | ga-student-202306-0009@majorguidancesolutions.com | Yawu2394#009! |
+| 10    | Sammy Orozco Contreras | ga-student-202306-0010@majorguidancesolutions.com | Yawu2394#010! |
+| 11    | Terence Fitzhugh       | ga-student-202306-0011@majorguidancesolutions.com | Yawu2394#011! |
+| 12    | Tyler Garcia           | ga-student-202306-0012@majorguidancesolutions.com | Yawu2394#012! |
+| 13    | William Marchant       | ga-student-202306-0013@majorguidancesolutions.com | Yawu2394#013! |
+| 14    | Yevheniya Solomyana    | ga-student-202306-0014@majorguidancesolutions.com | Yawu2394#014! |
+| 15    | Yun Yiu Cheng          | ga-student-202306-0015@majorguidancesolutions.com | Yawu2394#015! |
 
 
 3. Once you login, you can start and stop the machine from **labs.azure.com**. You will also be able to get the VM RDP (Remote Desktop) information there (you should already have this software on your PC).
@@ -57,31 +73,6 @@ If the environment is provisioned for you, then you will need to go through the 
 
     ![Alt text](./images/image-1.png)
 
-
-
-
 <!-- 1. Once you are on the Dev Machine, open a browser to your personal email. -->
-
-
-### To access Azure Portal in the VM
-
-1. Open Google Chrome
-2. Go to [the Azure Portal](https://portal.azure.com). Please use your `VM/Azure Login` and `Password` from the table above to login.
-<!-- 1. From your personal email, you'll have an invitation to join the Azure Subscription via a link to [the Azure Portal](https://portal.azure.com) 
-    > **IMPORTANT** Do not use your work machine or try to log into the Azure portal from your work machine with your personal email.  This needs to be done from the Lab VM only.  If you use your work email you will likely be in your work's Azure subscription or blocked from ours so you will not be able to complete the work for this course. -->
-3. After logging into Azure, validate you can see one resource group (something like `student0025` where the number is just the student number we have assigned you in the table above.
-    > **Note**: You can view resource groups by typing `Resource Group` in the top middle search bar on the browser and hitting enter.
-
-
-### To test Docker commands in the VM
-
-1) Start any terminal or powershell
-2) Type `wsl` and enter WSL Mode
-3) Enter the same credentials to log in
-student
-ClearPanda#082022!
-4) in the ubuntu instance, type
-`sudo service docker start`
-5) run docker commands at will.
 
 You are now ready to begin the class.  Good Luck! Have Fun! Enjoy the training!
