@@ -42,23 +42,29 @@ If the environment is provisioned for you, then you will need to go through the 
 
 2. Please use your credentials below to login to [Azure Labs](https://labs.azure.com) where you have a VM assigned to you. You'll need your `VM Login` and `Password`.
 
-| Count | Full Name              | VM Login                                          | Password      |
-| ----- | ---------------------- | ------------------------------------------------- | ------------- |
-| 1     | Andrew Perreault       | ga-student-202306-0001@majorguidancesolutions.com | Yawu2394#001! |
-| 2     | Anthony Mazzacane      | ga-student-202306-0002@majorguidancesolutions.com | Yawu2394#002! |
-| 3     | Connor Witkiewicz      | ga-student-202306-0003@majorguidancesolutions.com | Yawu2394#003! |
-| 4     | Frank Yubi             | ga-student-202306-0004@majorguidancesolutions.com | Yawu2394#004! |
-| 5     | Kiane Efondo           | ga-student-202306-0005@majorguidancesolutions.com | Yawu2394#005! |
-| 6     | Michael Laufer         | ga-student-202306-0006@majorguidancesolutions.com | Yawu2394#006! |
-| 7     | Michael Pikounis       | ga-student-202306-0007@majorguidancesolutions.com | Yawu2394#007! |
-| 8     | Nicholas Conn          | ga-student-202306-0008@majorguidancesolutions.com | Yawu2394#008! |
-| 9     | Owen Wurst             | ga-student-202306-0009@majorguidancesolutions.com | Yawu2394#009! |
-| 10    | Sammy Orozco Contreras | ga-student-202306-0010@majorguidancesolutions.com | Yawu2394#010! |
-| 11    | Terence Fitzhugh       | ga-student-202306-0011@majorguidancesolutions.com | Yawu2394#011! |
-| 12    | Tyler Garcia           | ga-student-202306-0012@majorguidancesolutions.com | Yawu2394#012! |
-| 13    | William Marchant       | ga-student-202306-0013@majorguidancesolutions.com | Yawu2394#013! |
-| 14    | Yevheniya Solomyana    | ga-student-202306-0014@majorguidancesolutions.com | Yawu2394#014! |
-| 15    | Yun Yiu Cheng          | ga-student-202306-0015@majorguidancesolutions.com | Yawu2394#015! |
+| Count | Full Name            | VM Login                                          | Password      |
+| ----- | -------------------- | ------------------------------------------------- | ------------- |
+| 1     | Christopher Gyumolcs | ga-student-202306-0001@majorguidancesolutions.com | Kalu9741#001! |
+| 2     | Davonta Wallace      | ga-student-202306-0002@majorguidancesolutions.com | Kalu9741#002! |
+| 3     | Matthew Holdorf      | ga-student-202306-0003@majorguidancesolutions.com | Kalu9741#003! |
+| 4     | Robert Berti         | ga-student-202306-0004@majorguidancesolutions.com | Kalu9741#004! |
+| 5     | Rohandra Malcolm     | ga-student-202306-0005@majorguidancesolutions.com | Kalu9741#005! |
+| 6     |                      | ga-student-202306-0006@majorguidancesolutions.com | Kalu9741#006! |
+| 7     | Sai Sakhamuri        | ga-student-202306-0007@majorguidancesolutions.com | Kalu9741#007! |
+| 8     | Sergio Hernandez     | ga-student-202306-0008@majorguidancesolutions.com | Kalu9741#008! |
+| 9     | Thomas Flaglor       | ga-student-202306-0009@majorguidancesolutions.com | Kalu9741#009! |
+| 10    | Varun Kumar          | ga-student-202306-0010@majorguidancesolutions.com | Kalu9741#010! |
+| 11    | Vina Vo              | ga-student-202306-0011@majorguidancesolutions.com | Kalu9741#011! |
+| 12    | Zachary England      | ga-student-202306-0012@majorguidancesolutions.com | Kalu9741#012! |
+| 13    | Zoe Valladares       | ga-student-202306-0013@majorguidancesolutions.com | Kalu9741#013! |
+| 14    | Adam Oberembt        | ga-student-202306-0014@majorguidancesolutions.com | Kalu9741#014! |
+| 15    | Daniel Rigoglioso    | ga-student-202306-0015@majorguidancesolutions.com | Kalu9741#015! |
+| 16    | Tal Tofighi          | ga-student-202306-0016@majorguidancesolutions.com | Kalu9741#016! |
+| 17    | Yana Naman           | ga-student-202306-0017@majorguidancesolutions.com | Kalu9741#017! |
+| 18    | Yining Bai           | ga-student-202306-0018@majorguidancesolutions.com | Kalu9741#018! |
+| 19    | Yusuf Sattar         | ga-student-202306-0019@majorguidancesolutions.com | Kalu9741#019! |
+| 20    | Aarushi Vashistha    | ga-student-202306-0020@majorguidancesolutions.com | Kalu9741#020! |
+| 21    | Ebun Oludemi         | ga-student-202306-0021@majorguidancesolutions.com | Kalu9741#021! |
 
 
 3. Once you login, you can start and stop the machine from **labs.azure.com**. You will also be able to get the VM RDP (Remote Desktop) information there (you should already have this software on your PC).
